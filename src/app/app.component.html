@@ -1,20 +1,42 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<nav role="nav" class="nav themed-border">
+  <a class="logo" routerLink="/">
+    <mat-icon class="logo-icon themed-color" svgIcon="logo"></mat-icon>
+    <div class="title themed-color">
+        <div>Random</div>
+        <div>Content</div>
+        <div>Generator</div>
+    </div>
+  </a>
+
+  <a class="nav-link" routerLink="/about" routerLinkActive="active">
+    <span class="text">About</span>
+  </a>
+  <a class="nav-link" routerLink="/projects" routerLinkActive="active">
+    <span class="text">Projects</span>
+  </a>
+  <a class="nav-link" routerLink="/blog" routerLinkActive="active">
+    <span class="text">Blog</span>
+  </a>
+  <a class="nav-link" routerLink="/contact" routerLinkActive="active">
+    <span class="text">Contact</span>
+  </a>
+
+  <a class="github-link" title="RCG on GitHub" href="https://github.com/random-content" target="_blank">
+    <mat-icon class="github-icon themed-color" svgIcon="github"></mat-icon>
+  </a>
+</nav>
+
+<div class="mini-loading" [ngClass]="{ 'active': loading.active, 'fade-out': loading.fadeOut }">
+    <mat-icon class="loading-icon" svgIcon="logo"></mat-icon>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+
+<div class="scroll-content">
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+    <div class="footer themed-border">
+        ©2019 Random Content Generator
+    </div>
+</div>
+
 

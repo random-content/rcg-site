@@ -1,0 +1,101 @@
+.loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+  transition: opacity .6s;
+  pointer-events: none;
+}
+
+.loading.fade-out {
+  opacity: 0;
+};
+
+.loading.inactive {
+  display: none;
+}
+
+.loading .logo {
+  width: 200px;
+  position: relative;
+  z-index: 1;
+}
+
+.loading .logo .bracket,
+.loading .logo .question-mark {
+  fill: #fff;
+  transition: fill 0.1s ease-out;
+}
+
+.loading .orange .question-mark {
+  fill: #f7931e;
+}
+
+.loading .green .question-mark {
+  fill: #59bb36;
+}
+
+.loading .blue .question-mark {
+  fill: #54a4db;
+}
+
+.loading .purple .question-mark {
+  fill: #8557a7;
+}
+
+.loading .red .question-mark {
+  fill: #c1272d;
+}
+
+.loading:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform .5s, opacity 1s linear 2s;
+  z-index: 0;
+}
+
+.orange .loading:before {
+  background-image: radial-gradient(circle, #f7931e 10%, transparent 10.01%);
+}
+
+.green .loading:before {
+  background-image: radial-gradient(circle, #59bb36 10%, transparent 10.01%);
+}
+
+.blue .loading:before {
+  background-image: radial-gradient(circle, #54a4db 10%, transparent 10.01%);
+}
+
+.purple .loading:before {
+  background-image: radial-gradient(circle, #8557a7 10%, transparent 10.01%);
+}
+
+.red .loading:before {
+  background-image: radial-gradient(circle, #c1272d 10%, transparent 10.01%);
+}
+
+.loading.ripple:before {
+  transform: scale(0, 0);
+  opacity: 1;
+  transition: 0s;
+}
+
+

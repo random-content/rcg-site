@@ -1,0 +1,174 @@
+@import '../colors.scss';
+
+.nav {
+  height: 75px;
+  display: flex;
+  padding: 0 30px;
+  border-bottom-width: 3px;
+  border-bottom-style: solid;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: $white;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+  user-select: none;
+  padding: 0 15px;
+}
+
+.title {
+  font-family: geom-graphic, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: normal;
+  font-size: 18px;
+  line-height: 19px;
+}
+
+.logo-icon {
+  height: 70px;
+  width: 70px;
+  margin-right: 10px;
+}
+
+.nav-link {
+  padding: 0 30px;
+  font-size: 16px;
+  font-family: geom-graphic, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: normal;
+  text-decoration: none;
+  display: inline-block;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  transition: background-color .3s, color .3s;
+  user-select: none;
+
+  &.active,
+  &.active:hover,
+  &.active:focus
+  &.active:visited {
+    color: $white;
+  }
+}
+
+:host .nav-link.active {
+  .orange & {
+    background-color: $orange;
+  }
+
+  .green & {
+    background-color: $green;
+  }
+
+  .blue & {
+    background-color: $blue;
+  }
+
+  .purple & {
+    background-color: $purple;
+  }
+
+  .red & {
+    background-color: $red;
+  }
+}
+
+.github-link {
+  position: absolute;
+  right: 30px;
+  top: 21px;
+}
+
+.github-icon {
+  height: 30px;
+  width: 30px;
+}
+
+.scroll-content {
+  padding: 90px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: $light-gray;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.content {
+  padding: 0 60px 30px;
+  width: 100%;
+  max-width: 900px;
+  background-color: $white;
+  flex: 0 0 auto;
+  margin-bottom: 30px;
+  min-height: 300px;
+}
+
+.footer {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 40px;
+  border-top-width: 2px;
+  border-top-style: solid;
+  background-color: $white;
+  width: 100%;
+  font-size: 12px;
+  color: $gray;
+}
+
+.mini-loading {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .2s;
+  top: 75px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 75px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: $white;
+
+  &.active {
+    opacity: 1;
+    display: flex;
+
+    &.fade-out {
+      opacity: 0;
+    }
+  }
+
+  .loading-icon {
+    height: 100px;
+    width: 100px;
+    opacity: .5;
+
+    .question-mark {
+      fill: $orange;
+      animation: 1s color-change;
+    }
+  }
+}
+
+@keyframes color-change {
+  0% { fill: $orange; }
+  20% { fill: $green; }
+  40% { fill: $blue; }
+  60% { fill: $purple; }
+  80% { fill: $red; }
+}

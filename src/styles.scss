@@ -1,0 +1,285 @@
+@import './colors';
+@import './mat-theme';
+
+html,
+body {
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  letter-spacing: 0.035em;
+  overflow-y: auto;
+}
+
+a,
+a:hover,
+a:focus,
+a:visited {
+  text-decoration: none;
+}
+
+a,
+a:hover,
+a:focus,
+a:visited,
+h1,
+h2,
+h3,
+.themed-color {
+  .orange & {
+    color: $orange;
+  }
+
+  .green & {
+    color: $green;
+  }
+
+  .blue & {
+    color: $blue;
+  }
+
+  .purple & {
+    color: $purple;
+  }
+
+  .red & {
+    color: $red;
+  }
+}
+
+.themed-background{
+  .orange & {
+    background-color: $orange;
+  }
+
+  .green & {
+    background-color: $green;
+  }
+
+  .blue & {
+    background-color: $blue;
+  }
+
+  .purple & {
+    background-color: $purple;
+  }
+
+  .red & {
+    background-color: $red;
+  }
+}
+
+.themed-border{
+  .orange & {
+    border-top-color: $orange;
+    border-right-color: $orange;
+    border-bottom-color: $orange;
+    border-left-color: $orange;
+  }
+
+  .green & {
+    border-top-color: $green;
+    border-right-color: $green;
+    border-bottom-color: $green;
+    border-left-color: $green;
+  }
+
+  .blue & {
+    border-top-color: $blue;
+    border-right-color: $blue;
+    border-bottom-color: $blue;
+    border-left-color: $blue;
+  }
+
+  .purple & {
+    border-top-color: $purple;
+    border-right-color: $purple;
+    border-bottom-color: $purple;
+    border-left-color: $purple;
+  }
+
+  .red & {
+    border-top-color: $red;
+    border-right-color: $red;
+    border-bottom-color: $red;
+    border-left-color: $red;
+  }
+}
+
+.mini-loading {
+  .loading-icon {
+    height: 100px;
+    width: 100px;
+
+    .question-mark {
+      fill: $gray;
+    }
+
+    .bracket {
+      fill: $gray;
+    }
+  }
+}
+
+.orange .mini-loading {
+  .question-mark {
+    animation: 1s color-change-orange-m infinite;
+  }
+
+  .bracket.left {
+    animation: 1s color-change-orange-l infinite;
+  }
+
+  .bracket.right {
+    animation: 1s color-change-orange-r infinite;
+  }
+}
+
+.green .mini-loading {
+  .question-mark {
+    animation: 1s color-change-green-m infinite;
+  }
+
+  .bracket.left {
+    animation: 1s color-change-green-l infinite;
+  }
+
+  .bracket.right {
+    animation: 1s color-change-green-r infinite;
+  }
+}
+
+.blue .mini-loading {
+  .question-mark {
+    animation: 1s color-change-blue-m infinite;
+  }
+
+  .bracket.left {
+    animation: 1s color-change-blue-l infinite;
+  }
+
+  .bracket.right {
+    animation: 1s color-change-blue-r infinite;
+  }
+}
+
+.purple .mini-loading {
+  .question-mark {
+    animation: 1s color-change-purple-m infinite;
+  }
+
+  .bracket.left {
+    animation: 1s color-change-purple-l infinite;
+  }
+
+  .bracket.right {
+    animation: 1s color-change-purple-r infinite;
+  }
+}
+
+.red .mini-loading {
+  .question-mark {
+    animation: 1s color-change-red-m infinite;
+  }
+
+  .bracket.left {
+    animation: 1s color-change-red-l infinite;
+  }
+
+  .bracket.right {
+    animation: 1s color-change-red-r infinite;
+  }
+}
+
+@keyframes color-change-orange-l {
+  0%, 57% { fill: $gray; }
+  67%, 90% { fill: $orange; }
+}
+
+@keyframes color-change-orange-m {
+  0%, 23% { fill: $orange; }
+  33%, 90% { fill: $gray; }
+}
+
+@keyframes color-change-orange-r {
+  0%, 23% { fill: $gray; }
+  33%, 57% { fill: $orange; }
+  67%, 100% { fill: $gray; }
+}
+
+
+@keyframes color-change-green-l {
+  0%, 57% { fill: $gray; }
+  67%, 90% { fill: $green; }
+}
+
+@keyframes color-change-green-m {
+  0%, 23% { fill: $green; }
+  33%, 90% { fill: $gray; }
+}
+
+@keyframes color-change-green-r {
+  0%, 23% { fill: $gray; }
+  33%, 57% { fill: $green; }
+  67%, 100% { fill: $gray; }
+}
+
+
+@keyframes color-change-blue-l {
+  0%, 57% { fill: $gray; }
+  67%, 90% { fill: $blue; }
+}
+
+@keyframes color-change-blue-m {
+  0%, 23% { fill: $blue; }
+  33%, 90% { fill: $gray; }
+}
+
+@keyframes color-change-blue-r {
+  0%, 23% { fill: $gray; }
+  33%, 57% { fill: $blue; }
+  67%, 100% { fill: $gray; }
+}
+
+
+@keyframes color-change-purple-l {
+  0%, 57% { fill: $gray; }
+  67%, 90% { fill: $purple; }
+}
+
+@keyframes color-change-purple-m {
+  0%, 23% { fill: $purple; }
+  33%, 90% { fill: $gray; }
+}
+
+@keyframes color-change-purple-r {
+  0%, 23% { fill: $gray; }
+  33%, 57% { fill: $purple; }
+  67%, 100% { fill: $gray; }
+}
+
+
+@keyframes color-change-red-l {
+  0%, 57% { fill: $gray; }
+  67%, 90% { fill: $red; }
+}
+
+@keyframes color-change-red-m {
+  0%, 23% { fill: $red; }
+  33%, 90% { fill: $gray; }
+}
+
+@keyframes color-change-red-r {
+  0%, 23% { fill: $gray; }
+  33%, 57% { fill: $red; }
+  67%, 100% { fill: $gray; }
+}

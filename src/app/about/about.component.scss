@@ -1,0 +1,43 @@
+.users-header {
+  margin-top: 45px;
+  margin-bottom: 40px;
+}
+
+.user {
+  display: flex;
+  margin-bottom: 30px;
+
+  a {
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 16px;
+    margin-bottom: 5px;
+  }
+}
+
+.user-left {
+  width: 96px;
+  flex: 0 0 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 30px;
+}
+
+.user-image {
+  width: 100%;
+  border-radius: 100%;
+  margin-bottom: 10px;
+}
+
+.user-right {
+  flex: 1 1 100%;
+
+  h3 {
+    margin-top: 0;
+  }
+
+  p {
+    max-width: 500px;
+  }
+}

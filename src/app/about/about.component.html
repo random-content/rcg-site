@@ -1,0 +1,17 @@
+<h1>{{ about.title }}</h1>
+
+<app-wp-content [content]="about.content"></app-wp-content>
+
+<h1 class="users-header">Who we are</h1>
+
+<div class="user" *ngFor="let user of users">
+  <div class="user-left">
+    <img class="user-image" [src]="user.avatar">
+    <a *ngIf="user.twitter" [href]="twitterUrl(user)" target="_blank">{{ user.twitter }}</a>
+    <a [href]="user.linkedIn" target="_blank">LinkedIn</a>
+  </div>
+  <div class="user-right">
+    <h3>{{ user.name }}</h3>
+    <p>{{ user.description }}</p>
+  </div>
+</div>
