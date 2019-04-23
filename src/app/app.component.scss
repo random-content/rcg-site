@@ -9,6 +9,7 @@ $content-breakpoint: 900px;
   border-bottom-width: 3px;
   border-bottom-style: solid;
   position: absolute;
+  z-index: 10;
   top: 0;
   left: 0;
   width: 100%;
@@ -214,6 +215,7 @@ $content-breakpoint: 900px;
 
 .mini-loading {
   position: absolute;
+  z-index: 10;
   pointer-events: none;
   opacity: 0;
   transition: opacity .2s;
