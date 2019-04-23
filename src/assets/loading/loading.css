@@ -66,30 +66,30 @@
   pointer-events: none;
   background-repeat: no-repeat;
   background-position: 50%;
-  transform: scale(10, 10);
+  transform: scale(2.5, 2.5);
   opacity: 0;
   transition: transform .5s, opacity 1s linear 2s;
   z-index: 0;
 }
 
 .orange .loading:before {
-  background-image: radial-gradient(circle, #f7931e 10%, transparent 10.01%);
+  background-image: radial-gradient(circle, #f7931e 40%, transparent 40.01%);
 }
 
 .green .loading:before {
-  background-image: radial-gradient(circle, #59bb36 10%, transparent 10.01%);
+  background-image: radial-gradient(circle, #59bb36 40%, transparent 40.01%);
 }
 
 .blue .loading:before {
-  background-image: radial-gradient(circle, #54a4db 10%, transparent 10.01%);
+  background-image: radial-gradient(circle, #54a4db 40%, transparent 40.01%);
 }
 
 .purple .loading:before {
-  background-image: radial-gradient(circle, #8557a7 10%, transparent 10.01%);
+  background-image: radial-gradient(circle, #8557a7 40%, transparent 40.01%);
 }
 
 .red .loading:before {
-  background-image: radial-gradient(circle, #c1272d 10%, transparent 10.01%);
+  background-image: radial-gradient(circle, #c1272d 40%, transparent 40.01%);
 }
 
 .loading.ripple:before {

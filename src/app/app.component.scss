@@ -1,9 +1,11 @@
 @import '../colors.scss';
+@import '../breakpoints.scss';
+
+$content-breakpoint: 900px;
 
 .nav {
-  height: 75px;
   display: flex;
-  padding: 0 30px;
+  padding-left: 30px;
   border-bottom-width: 3px;
   border-bottom-style: solid;
   position: absolute;
@@ -11,6 +13,11 @@
   left: 0;
   width: 100%;
   background-color: $white;
+  flex-wrap: wrap;
+
+  @media only screen and (max-width: $breakpoint-bigphones) {
+    padding-left: 0;
+  }
 }
 
 .logo {
@@ -19,6 +26,14 @@
   margin-right: 15px;
   user-select: none;
   padding: 0 15px;
+  flex: 0 0 auto;
+  height: 72px;
+
+  @media only screen and (max-width: $breakpoint-bigphones) {
+    flex: 0 0 100%;
+    height: 52px;
+    margin-top: 5px;
+  }
 }
 
 .title {
@@ -28,12 +43,33 @@
   letter-spacing: normal;
   font-size: 18px;
   line-height: 19px;
+
+  @media only screen and (max-width: $breakpoint-bigphones) {
+    font-size: 14px;
+    line-height: 15px;
+  }
 }
 
 .logo-icon {
   height: 70px;
   width: 70px;
   margin-right: 10px;
+
+  @media only screen and (max-width: $breakpoint-bigphones) {
+    height: 50px;
+    width: 55px;
+  }
+}
+
+.nav-links {
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  @media only screen and (max-width: $breakpoint-bigphones) {
+    flex: 0 0 100%;
+    margin-top: 5px;
+  }
 }
 
 .nav-link {
@@ -45,13 +81,39 @@
   letter-spacing: normal;
   text-decoration: none;
   display: inline-block;
-  height: 100%;
+  height: 75px;
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
   transition: background-color .3s, color .3s;
   user-select: none;
+  justify-content: center;
+
+  @media only screen and (max-width: 780px) {
+    padding: 0 15px;
+  }
+
+  @media only screen and (max-width: $breakpoint-bigphones) {
+    height: 40px;
+    font-size: 14px;
+    padding: 0 10px;
+    flex: 1 1 auto;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+  }
+
+  &:first-child {
+    @media only screen and (max-width: $breakpoint-bigphones) {
+      border-top-left-radius: 0;
+    }
+  }
+
+  &:last-child {
+    @media only screen and (max-width: $breakpoint-bigphones) {
+      border-top-right-radius: 0;
+    }
+  }
 
   &.active,
   &.active:hover,
@@ -87,6 +149,11 @@
   position: absolute;
   right: 30px;
   top: 21px;
+
+  @media only screen and (max-width: $breakpoint-bigphones) {
+    top: 16px;
+    right: 15px;
+  }
 }
 
 .github-icon {
@@ -104,16 +171,30 @@
   background-color: $light-gray;
   height: 100%;
   overflow-y: scroll;
+
+  @media only screen and (max-width: $content-breakpoint) {
+    background-color: $white;
+  }
+
+  @media only screen and (max-width: $breakpoint-bigphones) {
+    padding: 110px 0 0;
+  }
 }
 
 .content {
   padding: 0 60px 30px;
   width: 100%;
-  max-width: 900px;
+  max-width: $content-breakpoint;
   background-color: $white;
   flex: 0 0 auto;
   margin-bottom: 30px;
   min-height: 300px;
+  border-radius: 2px;
+
+  @media only screen and (max-width: $content-breakpoint) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 }
 
 .footer {
@@ -143,6 +224,10 @@
   align-items: center;
   justify-content: center;
   background-color: $white;
+
+  @media only screen and (max-width: $breakpoint-bigphones) {
+    top: 105px;
+  }
 
   &.active {
     opacity: 1;

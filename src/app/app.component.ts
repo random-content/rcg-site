@@ -39,6 +39,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.matIconRegistry.addSvgIcon('logo', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/rcg-logo.svg'));
     this.matIconRegistry.addSvgIcon('github', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/github-mark.svg'));
+    this.matIconRegistry.addSvgIcon('menu', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/menu.svg'));
 
     this.loadingService.loadingStatus.subscribe((next) => {
       this.loading = next;

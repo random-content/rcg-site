@@ -1,3 +1,5 @@
+@import '../../breakpoints.scss';
+
 .users-header {
   margin-top: 45px;
   margin-bottom: 40px;
@@ -6,6 +8,8 @@
 .user {
   display: flex;
   margin-bottom: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
 
   a {
     text-decoration: none;
@@ -22,19 +26,34 @@
   flex-direction: column;
   align-items: center;
   margin-right: 30px;
+
+  @media only screen and (max-width: $breakpoint-bigphones) {
+    width: 100%;
+    flex: 0 0 100%;
+    margin-right: 0;
+  }
+
+  a {
+    @media only screen and (max-width: $breakpoint-bigphones) {
+      display: none;
+    }
+  }
 }
 
 .user-image {
-  width: 100%;
+  width: 96px;
   border-radius: 100%;
   margin-bottom: 10px;
 }
 
 .user-right {
-  flex: 1 1 100%;
+  flex: 1 1 auto;
 
   h3 {
     margin-top: 0;
+    @media only screen and (max-width: $breakpoint-bigphones) {
+      text-align: center;
+    }
   }
 
   p {
