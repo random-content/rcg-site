@@ -171,6 +171,7 @@ $content-breakpoint: 900px;
   background-color: $light-gray;
   height: 100%;
   overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 
   @media only screen and (max-width: $content-breakpoint) {
     background-color: $white;
