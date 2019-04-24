@@ -8,6 +8,7 @@ import { AboutResolver } from './about/about.resolver';
 import { UsersResolver } from './about/users.resolver';
 import { ContactResolver } from './contact/contact.resolver';
 import { ProjectsResolver } from './projects/projects.resolver';
+import { ReposResolver } from './projects/repos.resolver';
 import { BlogHeaderResolver } from './blog/blog-header.resolver';
 import { HomeComponent } from './home/home.component';
 
@@ -24,7 +25,8 @@ const routes: Routes = [
     path: 'projects',
     component: ProjectsComponent,
     resolve: {
-      projects: ProjectsResolver
+      projects: ProjectsResolver,
+      repos: ReposResolver
     }
   },
   {
@@ -43,10 +45,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: HomeComponent,
-    // resolve: {
-    //   about: AboutResolver,
-    // }
+    component: HomeComponent
   },
   {
     path: '**',
@@ -66,7 +65,8 @@ const routes: Routes = [
     UsersResolver,
     ContactResolver,
     ProjectsResolver,
-    BlogHeaderResolver
+    BlogHeaderResolver,
+    ReposResolver
   ]
 })
 export class AppRoutingModule { }

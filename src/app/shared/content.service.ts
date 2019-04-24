@@ -4,7 +4,7 @@ import { Observable, pipe, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { SharedModule } from './shared.module';
-import { WpContent, WpUser } from '../core';
+import { WpContent, WpUser, GithubRepo } from '../core';
 import { LoadingService } from './loading.service';
 
 @Injectable({
@@ -12,9 +12,11 @@ import { LoadingService } from './loading.service';
 })
 export class ContentService {
   private url = `${environment.apiRoot}/wp-json/wp/v2`;
+  private githubUrl = `${environment.githubRoot}/orgs/random-content`;
 
   private pageCache: { [id: string]: WpContent };
   private cachedUsers: WpUser[];
+  private cachedRepos: GithubRepo[];
 
   constructor(
     private http: Http,
@@ -73,6 +75,31 @@ export class ContentService {
         this.cachedUsers = users;
 
         return users;
+      }));
+  }
+
+  getRepos(): Observable<GithubRepo[]> {
+    if (this.cachedRepos) {
+      return of(this.cachedRepos);
+    }
+
+    this.loadingService.startLoading();
+    return this.http.get(`${this.githubUrl}/repos?sort=full_name`)
+      .pipe(map((res) => {
+        const response = res.json();
+
+        const repos: GithubRepo[] = [];
+        response.forEach((repo) => {
+          repos.push({
+            name: repo.name,
+            url: repo.html_url,
+            description: repo.description
+          });
+        });
+
+        this.cachedRepos = repos;
+
+        return repos;
       }));
   }
 }
