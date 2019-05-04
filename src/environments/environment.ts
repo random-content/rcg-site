@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  apiRoot: 'https://wp-api.rcg.dev',
-  githubRoot: 'https://api.github.com'
+  apiRoot: 'http://localhost:5000/rcg-site/us-central1/api'
 };
 
 /*

@@ -2,8 +2,9 @@
   "name": "functions",
   "scripts": {
     "lint": "tslint --project tsconfig.json",
-    "build": "tsc",
-    "serve": "npm run build && firebase serve --only functions",
+    "build": "rm -rf lib/* && tsc",
+    "build:dev": "rm -rf lib/* && tsc --watch",
+    "serve": "export NODE_ENV='dev' && firebase serve --only functions",
     "shell": "npm run build && firebase functions:shell",
     "start": "npm run shell",
     "deploy": "firebase deploy --only functions",
@@ -11,8 +12,16 @@
   },
   "main": "lib/index.js",
   "dependencies": {
+    "@types/config": "0.0.34",
+    "@types/request-promise": "^4.1.43",
+    "config": "^3.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "express-async-handler": "^1.1.4",
     "firebase-admin": "~7.0.0",
-    "firebase-functions": "^2.2.0"
+    "firebase-functions": "^2.2.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4"
   },
   "devDependencies": {
     "tslint": "^5.12.0",

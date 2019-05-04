@@ -1,0 +1,13 @@
+{
+  "wordpress": {
+    "baseUrl": "https://wp-api.rcg.dev/wp-json/wp/v2",
+    "pages": "/pages",
+    "posts": "/posts",
+    "users": "/users?exclude=1"
+  },
+  "github": {
+    "baseUrl": "https://api.github.com/orgs/random-content",
+    "repos": "/repos?sort=full_name"
+  },
+  "origin": "https://rcg.dev"
+}

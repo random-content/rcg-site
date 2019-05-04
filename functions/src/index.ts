@@ -1,8 +1,6 @@
-// import * as functions from 'firebase-functions';
+process.env.NODE_CONFIG_DIR = `${__dirname}/config`;
 
-// // Start writing Firebase Functions
-// // https://firebase.google.com/docs/functions/typescript
-//
-// export const helloWorld = functions.https.onRequest((request, response) => {
-//  response.send("Hello from Firebase!");
-// });
+import * as functions from 'firebase-functions';
+import { app } from './app';
+
+export const api = functions.https.onRequest(app);

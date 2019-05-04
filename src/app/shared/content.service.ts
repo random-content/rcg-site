@@ -11,8 +11,7 @@ import { LoadingService } from './loading.service';
   providedIn: SharedModule
 })
 export class ContentService {
-  private url = `${environment.apiRoot}/wp-json/wp/v2`;
-  private githubUrl = `${environment.githubRoot}/orgs/random-content`;
+  private url = environment.apiRoot;
 
   private pageCache: { [id: string]: WpContent };
   private cachedUsers: WpUser[];
@@ -25,9 +24,9 @@ export class ContentService {
     this.pageCache = {};
   }
 
-  getPosts(): Observable<any> {
-    return this.http.get(`${this.url}/posts`);
-  }
+  // getPosts(): Observable<any> {
+  //   return this.http.get(`${this.url}/posts`);
+  // }
 
   getPage(id): Observable<WpContent> {
     if (this.pageCache[id]) {
@@ -37,14 +36,8 @@ export class ContentService {
     this.loadingService.startLoading();
     return this.http.get(`${this.url}/pages/${id}`)
       .pipe(map((res) => {
-        const data = res.json();
-        const page = {
-          title: data.title.rendered,
-          content: data.content.rendered
-        };
-
+        const page = res.json();
         this.pageCache[id] = page;
-
         return page;
       }));
   }
@@ -55,25 +48,10 @@ export class ContentService {
     }
 
     this.loadingService.startLoading();
-    return this.http.get(`${this.url}/users?exclude=1`)
+    return this.http.get(`${this.url}/users`)
       .pipe(map((res) => {
-        const response = res.json();
-
-        const users: WpUser[] = [];
-        response.forEach((user) => {
-          const avatars = user.avatar_urls;
-          users.push({
-            id: user.id,
-            name: user.name,
-            description: user.description,
-            linkedIn: user.url,
-            twitter: user.meta.twitter,
-            avatar: avatars['96'] || avatars['48'] || avatars['24']
-          });
-        });
-
+        const users = res.json();
         this.cachedUsers = users;
-
         return users;
       }));
   }
@@ -84,21 +62,10 @@ export class ContentService {
     }
 
     this.loadingService.startLoading();
-    return this.http.get(`${this.githubUrl}/repos?sort=full_name`)
+    return this.http.get(`${this.url}/repos`)
       .pipe(map((res) => {
-        const response = res.json();
-
-        const repos: GithubRepo[] = [];
-        response.forEach((repo) => {
-          repos.push({
-            name: repo.name,
-            url: repo.html_url,
-            description: repo.description
-          });
-        });
-
+        const repos = res.json();
         this.cachedRepos = repos;
-
         return repos;
       }));
   }
