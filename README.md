@@ -1,27 +1,29 @@
-# RcgSite
+# rcg-site
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.2.
+The Random Content Generator website, built with Angular and Firebase. Check it out at https://rcg.dev
 
-## Development server
+## Front end
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+The client side of the site is an Angular SPA. It's got some interesting stuff like a loading handoff after the app bootstraps, but for the most part it's a simple implementation of an Angular client.
 
-## Code scaffolding
+## Back end
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Page content, user data, and (eventually) blog posts are hosted on an external WordPress server and accessed through the WordPress REST API. Repository info is pulled from the GitHub API. Between the client and the APIs sits a Firebase function. It's responsible for massaging response data from the APIs into leaner formats for the client. It also leverages Google's CDN to provide caching and improve load times.
 
-## Build
+## Running Locally
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+You should be able to run it locally by installing dependencies for both the app and the functions, then running the `serve` script:
+```
+npm install
+npm --prefix functions install
+npm run serve
+```
 
-## Running unit tests
+It might not work, though! I haven't tested a fresh repository.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## To-dos
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- [ ] Build the blog section
+- [ ] Implement lazy loading of pages
+- [ ] Incorporate Angular Universal for SSR & SEO
+- [ ] Implement contact form submission
