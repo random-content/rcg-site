@@ -17,8 +17,6 @@ usersRouter.get('/', asyncHandler(async (req, res) => {
 
   const response = await request(options);
 
-  console.log(process.env.NODE_ENV);
-
   const users: WpUser[] = [];
   response.forEach((user: any) => {
     const avatars = user.avatar_urls;

@@ -4,11 +4,12 @@
     "lint": "tslint --project tsconfig.json",
     "build": "rm -rf lib/* && tsc",
     "build:dev": "rm -rf lib/* && tsc --watch",
-    "serve": "export NODE_ENV='dev' && firebase serve --only functions",
+    "serve:firebase": "export NODE_ENV='dev' && firebase serve --only functions",
     "shell": "npm run build && firebase functions:shell",
     "start": "npm run shell",
     "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log"
+    "logs": "firebase functions:log",
+    "serve": "npm-run-all -p build:dev serve:firebase"
   },
   "main": "lib/index.js",
   "dependencies": {
@@ -24,6 +25,7 @@
     "request-promise": "^4.2.4"
   },
   "devDependencies": {
+    "npm-run-all": "^4.1.5",
     "tslint": "^5.12.0",
     "typescript": "^3.2.2"
   },
