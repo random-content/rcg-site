@@ -1,4 +1,3 @@
-export * from './wp-content';
-export * from './wp-user';
-export * from './pages';
+export * from './page-data';
+export * from './user-data';
 export * from './github-repo';

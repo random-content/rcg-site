@@ -36,6 +36,7 @@ testem.log
 /typings
 /.firebase
 firebase-debug.log
+ui-debug.log
 
 # System Files
 .DS_Store

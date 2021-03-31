@@ -1,4 +1,4 @@
-export interface WpContent {
+export interface PageData {
   title: string;
   content: string;
 }

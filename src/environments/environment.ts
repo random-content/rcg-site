@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiRoot: 'http://localhost:5000/rcg-site/us-central1/api'
+  apiRoot: 'http://localhost:5001/rcg-site/us-central1/api'
 };
 
 /*

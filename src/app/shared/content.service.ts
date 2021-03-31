@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable, pipe, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
@@ -18,7 +18,7 @@ export class ContentService {
   private cachedRepos: GithubRepo[];
 
   constructor(
-    private http: Http,
+    private http: HttpClient,
     private loadingService: LoadingService
   ) {
     this.pageCache = {};
@@ -35,10 +35,9 @@ export class ContentService {
 
     this.loadingService.startLoading();
     return this.http.get(`${this.url}/pages/${id}`)
-      .pipe(map((res) => {
-        const page = res.json();
-        this.pageCache[id] = page;
-        return page;
+      .pipe(map((res: WpContent) => {
+        this.pageCache[id] = res;
+        return res;
       }));
   }
 
@@ -49,10 +48,9 @@ export class ContentService {
 
     this.loadingService.startLoading();
     return this.http.get(`${this.url}/users`)
-      .pipe(map((res) => {
-        const users = res.json();
-        this.cachedUsers = users;
-        return users;
+      .pipe(map((res: WpUser[]) => {
+        this.cachedUsers = res;
+        return res;
       }));
   }
 
@@ -63,10 +61,9 @@ export class ContentService {
 
     this.loadingService.startLoading();
     return this.http.get(`${this.url}/repos`)
-      .pipe(map((res) => {
-        const repos = res.json();
-        this.cachedRepos = repos;
-        return repos;
+      .pipe(map((res: GithubRepo[]) => {
+        this.cachedRepos = res;
+        return res;
       }));
   }
 }

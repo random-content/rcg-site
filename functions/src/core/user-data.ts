@@ -1,5 +1,5 @@
-export interface WpUser {
-  id: string;
+export interface UserData {
+  id: number;
   name: string;
   linkedIn: string;
   twitter: string;
