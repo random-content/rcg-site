@@ -1,13 +1,12 @@
 import { Router } from 'express';
-import * as asyncHandler from 'express-async-handler';
-import { UserData } from '../core';
-import { Data } from '../data';
+import asyncHandler from 'express-async-handler';
+import { DB } from '../db';
 
 export const usersRouter = Router();
 
 usersRouter.get('/', asyncHandler(async (req, res) => {
-  const users: UserData[] = Data.USERS;
+  const users = await DB.getUsers();
 
-  res.set('Cache-Control', 'public, max-age=86400');
+  res.set('Cache-Control', 'public, max-age=3600');
   return res.send(users);
 }));

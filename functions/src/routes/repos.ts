@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import * as config from 'config';
-import * as request from 'request-promise';
-import * as asyncHandler from 'express-async-handler';
+import config from 'config';
+import request from 'request-promise';
+import asyncHandler from 'express-async-handler';
 import { GithubRepo } from '../core';
 
 export const reposRouter = Router();
@@ -29,6 +29,6 @@ reposRouter.get('/', asyncHandler(async (req, res) => {
     });
   });
 
-  res.set('Cache-Control', 'public, max-age=86400');
+  res.set('Cache-Control', 'public, max-age=3600');
   return res.send(repos);
 }));

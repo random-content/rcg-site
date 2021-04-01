@@ -1,11 +1,12 @@
-import * as express from 'express'
-import * as cors from 'cors';
-import * as config from 'config';
+import express from 'express'
+import cors from  'cors';
+import config from 'config';
 
 import { suhhRouter } from './routes/suhh';
 import { pagesRouter } from './routes/pages';
 import { usersRouter } from './routes/users';
 import { reposRouter } from './routes/repos';
+import { errorHandler } from './util';
 
 const origin: string = config.get('origin');
 
@@ -22,3 +23,5 @@ app.use('/', suhhRouter);
 app.use('/pages', pagesRouter);
 app.use('/users', usersRouter);
 app.use('/repos', reposRouter);
+
+app.use(errorHandler);
