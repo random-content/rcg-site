@@ -15,11 +15,18 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
+      - name: Build Functions
+        run: npm  --prefix functions run build
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
           name: dist
           path: dist
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: distFunctions
+          path: functions/dist
   deploy:
     name: Deploy
     needs: build
@@ -32,6 +39,11 @@ jobs:
         with:
           name: dist
           path: dist
+      - name: Download Artifact Functions
+        uses: actions/download-artifact@master
+        with:
+          name: distFunctions
+          path: functions/dist
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
