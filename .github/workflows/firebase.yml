@@ -11,12 +11,14 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@master
-      - name: Install Dependencies
+      - name: Install
         run: npm install
+      - name: Install Functions
+        run: npm --prefix functions install
       - name: Build
         run: npm run build
       - name: Build Functions
-        run: npm  --prefix functions run build
+        run: npm --prefix functions run build
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
@@ -25,8 +27,8 @@ jobs:
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
-          name: distFunctions
-          path: functions/dist
+          name: libFunctions
+          path: functions/lib
   deploy:
     name: Deploy
     needs: build
@@ -42,8 +44,8 @@ jobs:
       - name: Download Artifact Functions
         uses: actions/download-artifact@master
         with:
-          name: distFunctions
-          path: functions/dist
+          name: libFunctions
+          path: functions/lib
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
